@@ -7,8 +7,8 @@ const plebNavbarBrandStyle = {
 
 const PlebNavbar = () => (
 	<Navbar bg="light" variant="light">
-		<Navbar.Brand href="#home" style={plebNavbarBrandStyle}>
-			Pleb.nz
+		<Navbar.Brand href="#home">
+			<span style={plebNavbarBrandStyle}>PlebL</span> <span>NZ</span>
 		</Navbar.Brand>
 		<Nav className="mr-auto">
 			{/* <Nav.Link href="#features">Features</Nav.Link> */}
