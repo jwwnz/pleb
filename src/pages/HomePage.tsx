@@ -106,55 +106,63 @@ function HomePage() {
 				<Row style={rowStyle}>
 					<Col>
 						<h4>Important links</h4>
-						{legalLinks
-							.filter(({ category }) => category !== "Covid-19")
-							.map(
-								({ name, link, description, hidden }) =>
-									!hidden && (
-										<div style={paragraphStyle}>
-											<a href={link}>{name}</a> - <span>{description}</span>
-										</div>
-									)
-							)}
+						<ul>
+							{legalLinks
+								.filter(({ category }) => category !== "Covid-19")
+								.map(
+									({ name, link, description, hidden }) =>
+										!hidden && (
+											<li style={paragraphStyle}>
+												<a href={link}>{name}</a>
+												<div>{description}</div>
+											</li>
+										)
+								)}
+						</ul>
 					</Col>
 				</Row>
 				<Row style={rowStyle}>
 					<Col>
 						<h4>Covid-19 Related links</h4>
-						{legalLinks
-							.filter(({ category }) => category === "Covid-19")
-							.map(({ name, link, description, questionsAndAnswers }) => (
-								<div style={paragraphStyle}>
-									<a href={link}>{name}</a> - <span>{description}</span>
-									{questionsAndAnswers && (
-										<div>
-											<div style={{ fontWeight: "bold" }}>
-												Questions and answers
+						<ul>
+							{legalLinks
+								.filter(({ category }) => category === "Covid-19")
+								.map(({ name, link, description, questionsAndAnswers }) => (
+									<li style={paragraphStyle}>
+										<a href={link}>{name}</a>
+										<div>{description}</div>
+										{questionsAndAnswers && (
+											<div>
+												<div style={{ fontWeight: "bold" }}>
+													Questions and answers
+												</div>
+												<ul>
+													{questionsAndAnswers.map(
+														({ question, answer, sources }) => (
+															<li
+																style={{ textAlign: "left", fontSize: "14px" }}
+															>
+																<hr />
+																<div style={{ fontStyle: "italic" }}>
+																	{question}
+																</div>
+																<br></br>
+																<div>{answer}</div>
+																{sources &&
+																	sources.map(({ name, link }) => (
+																		<div>
+																			<a href={link}>{name}</a>
+																		</div>
+																	))}
+															</li>
+														)
+													)}
+												</ul>
 											</div>
-											<ul>
-												{questionsAndAnswers.map(
-													({ question, answer, sources }) => (
-														<li style={{ textAlign: "left", fontSize: "14px" }}>
-															<hr />
-															<div style={{ fontStyle: "italic" }}>
-																{question}
-															</div>
-															<br></br>
-															<div>{answer}</div>
-															{sources &&
-																sources.map(({ name, link }) => (
-																	<div>
-																		<a href={link}>{name}</a>
-																	</div>
-																))}
-														</li>
-													)
-												)}
-											</ul>
-										</div>
-									)}
-								</div>
-							))}
+										)}
+									</li>
+								))}
+						</ul>
 					</Col>
 				</Row>
 			</Container>
