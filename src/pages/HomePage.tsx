@@ -41,7 +41,7 @@ const legalLinks = [
 				question:
 					"My employer just cut my wages to the wage subsidy amount only without written agreement on my part, can they do this?",
 				answer:
-					"The starting point is no. Requirements under employment law and contract are not automagically changed due to Covid-19. Some employers misunderstand the request from the government to pay 'at least the wage subsidy' to mean that they are entitled to do so without proper legal steps, this is incorrect and illegal. They must consult with you in good faith, and note in their agreement with the government in getting this subsidy they must try their 'hardest' to pay the employee at least 80% of their usual wage.",
+					"The starting point is no. Requirements under employment law and contract are not automagically changed due to Covid-19. Some employers misunderstand the request from the government to pay 'at least the wage subsidy' to mean that they are entitled to do so without proper legal steps, this is incorrect and illegal. They must consult with you in good faith, and in their agreement with the government in getting this subsidy they agreed they will try their 'hardest' to pay the employee at least 80% of their usual wage.",
 				sources: [
 					{
 						name: "Work and Income - Wage subsidy payments",
