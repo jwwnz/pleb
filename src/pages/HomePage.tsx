@@ -86,15 +86,6 @@ function HomePage() {
 		textAlign: "left",
 	} as React.CSSProperties;
 
-	const questionAnswerStyle = {
-		textAlign: "left",
-		fontSize: "14px",
-		border: "1px solid #F5F5F5",
-		boxShadow: "2px 2px #F5F5F5",
-		borderRadius: "16px",
-		padding: "10px",
-	} as React.CSSProperties;
-
 	return (
 		<>
 			<Container style={homePageStyle}>
