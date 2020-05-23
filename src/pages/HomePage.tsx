@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
+import "./HomePage.css";
 
 const legalLinks = [
 	{
@@ -85,14 +86,11 @@ function HomePage() {
 		textAlign: "left",
 	} as React.CSSProperties;
 
-	const paragraphStyle = {
-		margin: "10px 0 10px 0",
-	} as React.CSSProperties;
-
 	const questionAnswerStyle = {
 		textAlign: "left",
 		fontSize: "14px",
-		border: "1px solid",
+		border: "1px solid #F5F5F5",
+		boxShadow: "2px 2px #F5F5F5",
 		borderRadius: "16px",
 		padding: "10px",
 	} as React.CSSProperties;
@@ -114,62 +112,63 @@ function HomePage() {
 				<Row style={rowStyle}>
 					<Col>
 						<h4>Important links</h4>
-						<ul>
-							{legalLinks
-								.filter(({ category }) => category !== "Covid-19")
-								.map(
-									({ name, link, description, hidden }) =>
-										!hidden && (
-											<li style={paragraphStyle}>
-												<a href={link}>{name}</a>
-												<div>{description}</div>
-											</li>
-										)
-								)}
-						</ul>
+						{legalLinks
+							.filter(({ category }) => category !== "Covid-19")
+							.map(
+								({ name, link, description, hidden }) =>
+									!hidden && (
+										<div className="paragraphStyle">
+											<a href={link}>{name}</a>
+											<div>{description}</div>
+										</div>
+									)
+							)}
 					</Col>
 				</Row>
 				<Row style={rowStyle}>
 					<Col>
 						<h4>Covid-19 Related links</h4>
-						<ul>
-							{legalLinks
-								.filter(({ category }) => category === "Covid-19")
-								.map(({ name, link, description, questionsAndAnswers }) => (
-									<li style={paragraphStyle}>
-										<a href={link}>{name}</a>
-										<div>{description}</div>
-										{questionsAndAnswers && (
-											<div>
-												<hr />
-												<div style={{ fontWeight: "bold" }}>
-													Questions and answers
-												</div>
-												{questionsAndAnswers.map(
-													({ question, answer, sources }) => (
-														<div style={questionAnswerStyle}>
-															<div style={{ fontStyle: "italic" }}>
-																"{question}"
-															</div>
-															<br />
-															<div>{answer}</div>
-															<br />
-															<ul>
-																{sources &&
-																	sources.map(({ name, link }) => (
-																		<li>
-																			<a href={link}>{name}</a>
-																		</li>
-																	))}
-															</ul>
-														</div>
-													)
-												)}
+						{legalLinks
+							.filter(({ category }) => category === "Covid-19")
+							.map(({ name, link, description, questionsAndAnswers }) => (
+								<div className="paragraphStyle">
+									<a href={link}>{name}</a>
+									<div>{description}</div>
+									{questionsAndAnswers && (
+										<div>
+											<hr />
+											<div
+												style={{
+													fontWeight: "bold",
+													padding: "0 0 1rem 0",
+												}}
+											>
+												Questions and answers
 											</div>
-										)}
-									</li>
-								))}
-						</ul>
+											{questionsAndAnswers.map(
+												({ question, answer, sources }) => (
+													<div className="questionAnswerStyle">
+														<div style={{ fontStyle: "italic" }}>
+															"{question}"
+														</div>
+														<br />
+														<div>{answer}</div>
+														<br />
+														<ul>
+															{sources &&
+																sources.map(({ name, link }) => (
+																	<li>
+																		<a href={link}>{name}</a>
+																	</li>
+																))}
+														</ul>
+													</div>
+												)
+											)}
+										</div>
+									)}
+								</div>
+							))}
 					</Col>
 				</Row>
 			</Container>
