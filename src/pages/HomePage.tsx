@@ -89,6 +89,14 @@ function HomePage() {
 		margin: "10px 0 10px 0",
 	} as React.CSSProperties;
 
+	const questionAnswerStyle = {
+		textAlign: "left",
+		fontSize: "14px",
+		border: "1px solid",
+		borderRadius: "16px",
+		padding: "10px",
+	} as React.CSSProperties;
+
 	return (
 		<>
 			<Container style={homePageStyle}>
@@ -133,31 +141,30 @@ function HomePage() {
 										<div>{description}</div>
 										{questionsAndAnswers && (
 											<div>
+												<hr />
 												<div style={{ fontWeight: "bold" }}>
 													Questions and answers
 												</div>
-												<ul>
-													{questionsAndAnswers.map(
-														({ question, answer, sources }) => (
-															<li
-																style={{ textAlign: "left", fontSize: "14px" }}
-															>
-																<hr />
-																<div style={{ fontStyle: "italic" }}>
-																	{question}
-																</div>
-																<br></br>
-																<div>{answer}</div>
+												{questionsAndAnswers.map(
+													({ question, answer, sources }) => (
+														<div style={questionAnswerStyle}>
+															<div style={{ fontStyle: "italic" }}>
+																"{question}"
+															</div>
+															<br />
+															<div>{answer}</div>
+															<br />
+															<ul>
 																{sources &&
 																	sources.map(({ name, link }) => (
-																		<div>
+																		<li>
 																			<a href={link}>{name}</a>
-																		</div>
+																		</li>
 																	))}
-															</li>
-														)
-													)}
-												</ul>
+															</ul>
+														</div>
+													)
+												)}
 											</div>
 										)}
 									</li>
