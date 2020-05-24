@@ -22,6 +22,16 @@
 }
 
 .questionAnswerStyle:hover {
-	background-color: #ccffff;
+	color: white;
+	background-color: #808080;
 	box-shadow: 2px 2px #c0c0c0;
 }
+
+/* .questionAnswerStyle:hover * a {
+	background-color: red;
+	color: white;
+	margin: 2px;
+	padding: 1em 0;
+	text-decoration: none;
+	text-transform: uppercase;
+} */

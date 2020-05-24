@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import "./HomePage.css";
 import { legalLinks } from "../test-data/test-data";
 
@@ -43,7 +43,7 @@ function HomePage() {
 							.map(
 								({ name, link, description, hidden }) =>
 									!hidden && (
-										<div className="paragraphStyle">
+										<div className="paragraphStyle" key={name}>
 											<a href={link}>{name}</a>
 											<div>{description}</div>
 										</div>
@@ -57,7 +57,7 @@ function HomePage() {
 						{legalLinks
 							.filter(({ category }) => category === "Covid-19")
 							.map(({ name, link, description, questionsAndAnswers }) => (
-								<div className="paragraphStyle">
+								<div className="paragraphStyle" key={name}>
 									<a href={link}>{name}</a>
 									<div>{description}</div>
 									{questionsAndAnswers && (
@@ -73,21 +73,25 @@ function HomePage() {
 											</div>
 											{questionsAndAnswers.map(
 												({ question, answer, sources }) => (
-													<div className="questionAnswerStyle">
+													<div className="questionAnswerStyle" key={question}>
 														<div style={{ fontStyle: "italic" }}>
 															"{question}"
 														</div>
 														<br />
 														<div>{answer}</div>
 														<br />
-														<ul>
-															{sources &&
-																sources.map(({ name, link }) => (
-																	<li>
-																		<a href={link}>{name}</a>
-																	</li>
-																))}
-														</ul>
+
+														{sources &&
+															sources.map(({ name, link }) => (
+																<Button
+																	variant="primary"
+																	href={link}
+																	style={{ margin: "2px" }}
+																	key={name}
+																>
+																	{name}
+																</Button>
+															))}
 													</div>
 												)
 											)}
