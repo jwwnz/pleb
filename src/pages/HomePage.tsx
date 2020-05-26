@@ -4,38 +4,23 @@ import "./HomePage.css";
 import { legalLinks } from "../test-data/test-data";
 
 function HomePage() {
-	const homePageStyle = {
-		padding: "20px 0px 0px 0px",
-	} as React.CSSProperties;
-
-	const quoteStyle = {
-		fontStyle: "italic",
-	} as React.CSSProperties;
-
-	const pictureRowStyle = {
-		margin: "20px 0 20px 0",
-	} as React.CSSProperties;
-
-	const rowStyle = {
-		margin: "20px 0 20px 0",
-		textAlign: "left",
-	} as React.CSSProperties;
-
 	return (
 		<>
-			<Container style={homePageStyle}>
-				<Row style={pictureRowStyle}>
+			<Container className="homePageStyle">
+				<Row className="pictureRowStyle">
 					<Col>
 						<Image src="people.jpg" fluid />
 					</Col>
 				</Row>
 				<Row>
-					<Col style={quoteStyle}>
-						Use the law. It's yours as much as anyones.
+					<Col>
+						<div className="quoteStyle">
+							Use the law. It's yours as much as anyones.
+						</div>
 					</Col>
 				</Row>
 				<hr style={{ width: "100px" }} />
-				<Row style={rowStyle}>
+				<Row className="rowStyle">
 					<Col>
 						<h4>Important links</h4>
 						{legalLinks
@@ -51,7 +36,7 @@ function HomePage() {
 							)}
 					</Col>
 				</Row>
-				<Row style={rowStyle}>
+				<Row className="rowStyle">
 					<Col>
 						<h4>Covid-19 Related links</h4>
 						{legalLinks

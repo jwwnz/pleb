@@ -1,3 +1,20 @@
+.homePageStyle {
+	padding: 20px 0px 0px 0px;
+}
+
+.quoteStyle {
+	font-style: italic;
+}
+
+.pictureRowStyle {
+	margin: 20px 0 20px 0;
+}
+
+.rowStyle {
+	margin: 20px 0 20px 0;
+	text-align: left;
+}
+
 .paragraphStyle {
 	margin: 10px 0 10px 0;
 	text-align: left;
