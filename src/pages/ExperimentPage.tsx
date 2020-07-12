@@ -1,8 +1,7 @@
 import React from "react";
-import { Button, Col, Container, Image, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Select from "react-select";
 import "./HomePage.css";
-import { legalLinks } from "../test-data/test-data";
 
 const options = [{ value: "conveyancing", label: "Conveyancing (Property)" }];
 
