@@ -1,11 +1,13 @@
-import React from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Container } from "react-bootstrap";
 import Select from "react-select";
 import "./HomePage.css";
 
 const options = [{ value: "conveyancing", label: "Conveyancing (Property)" }];
 
-function ExperimentPage() {
+const ExperimentPage: FunctionComponent<{ selection?: string }> = ({
+	selection = "",
+}) => {
 	return (
 		<>
 			<Container>
@@ -14,6 +16,6 @@ function ExperimentPage() {
 			</Container>
 		</>
 	);
-}
+};
 
 export default ExperimentPage;
